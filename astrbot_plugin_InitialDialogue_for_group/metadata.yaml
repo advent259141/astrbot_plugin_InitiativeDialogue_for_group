@@ -1,0 +1,6 @@
+name: astrbot_plugin_InitialDialogue_for_group # 这是你的插件的唯一识别名。
+desc: 使bot在群聊长时间无人发送消息时主动发起对话的插件 # 插件简短描述
+help: 当群聊一段时间没人说话时，bot会根据上下文主动发起聊天。 # 插件的帮助信息
+version: v1.0.0 # 插件版本号。格式：v1.1.1 或者 v1.1
+author: Jason # 作者
+repo: https://github.com/your-repo/astrbot_plugin_InitialDialogue_for_group # 插件的仓库地址

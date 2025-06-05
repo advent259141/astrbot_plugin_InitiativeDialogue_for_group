@@ -1,0 +1,236 @@
+{
+    "self_id": {
+        "description": "机器人自己的QQ号",
+        "type": "string",
+        "hint": "请填写机器人自己的QQ号，这是必填项",
+        "default": ""
+    },
+    "time_settings": {
+        "description": "群聊主动对话的时间设置",
+        "type": "object",
+        "items": {
+            "time_limit_enabled": {
+                "description": "是否启用时间段限制",
+                "type": "bool",
+                "hint": "启用后只在指定的开始时间和结束时间之间发送主动消息",
+                "default": true
+            },
+            "inactive_time_seconds": {
+                "description": "触发群聊主动对话的不活跃时间(秒)",
+                "type": "int",
+                "hint": "群聊多久没人说话后会触发主动对话，默认10800秒(3小时)",
+                "default": 10800
+            },
+            "max_response_delay_seconds": {
+                "description": "主动对话随机回复的最大延迟时间(秒)",
+                "type": "int",
+                "hint": "触发主动对话后，在多长时间内随机发送消息，默认1800秒(30分钟)",
+                "default": 1800
+            },
+            "activity_start_hour": {
+                "description": "活动开始时间(小时)",
+                "type": "int",
+                "hint": "每天几点开始允许发送主动消息，24小时制，默认9点",
+                "default": 9
+            },
+            "activity_end_hour": {
+                "description": "活动结束时间(小时)",
+                "type": "int",
+                "hint": "每天几点停止发送主动消息，24小时制，默认22点",
+                "default": 22
+            },
+            "max_consecutive_messages": {
+                "description": "最大连续主动消息数",
+                "type": "int",
+                "hint": "无回复情况下最多连续发送多少条主动消息，默认2条",
+                "default": 2
+            }
+        }
+    },
+    "whitelist": {
+        "description": "群聊主动对话白名单配置",
+        "type": "object",
+        "items": {
+            "enabled": {
+                "description": "是否启用群聊白名单",
+                "type": "bool",
+                "hint": "启用后只有白名单内的群聊会触发主动对话",
+                "default": false
+            },
+            "group_ids": {
+                "description": "白名单群聊ID列表",
+                "type": "list",
+                "hint": "允许触发主动对话的群聊ID列表",
+                "default": []
+            }
+        }
+    },
+    "daily_greetings": {
+        "description": "群聊每日定时问候配置",
+        "type": "object",
+        "items": {
+            "enabled": {
+                "description": "是否启用每日群聊问候",
+                "type": "bool",
+                "hint": "启用后会在指定时间向群聊发送早安和晚安问候",
+                "default": false
+            },
+            "morning_hour": {
+                "description": "早安问候时间(小时)",
+                "type": "int",
+                "hint": "发送早安问候的小时，24小时制，默认8点",
+                "default": 8
+            },
+            "morning_minute": {
+                "description": "早安问候时间(分钟)",
+                "type": "int",
+                "hint": "发送早安问候的分钟，默认30分",
+                "default": 30
+            },
+            "night_hour": {
+                "description": "晚安问候时间(小时)",
+                "type": "int",
+                "hint": "发送晚安问候的小时，24小时制，默认23点",
+                "default": 23
+            },
+            "night_minute": {
+                "description": "晚安问候时间(分钟)",
+                "type": "int",
+                "hint": "发送晚安问候的分钟，默认0分",
+                "default": 0
+            }
+        }
+    },
+    "schedule_settings": {
+        "description": "群聊AI日程安排设置",
+        "type": "object",
+        "items": {
+            "enabled": {
+                "description": "是否启用AI日程安排",
+                "type": "bool",
+                "hint": "启用后AI会自动在群聊中分享每日日程安排",
+                "default": false
+            },
+            "generation_hour": {
+                "description": "日程生成时间(小时)",
+                "type": "int",
+                "hint": "每天几点生成新的日程安排，24小时制，默认0点",
+                "default": 0
+            },
+            "generation_minute": {
+                "description": "日程生成时间(分钟)",
+                "type": "int",
+                "hint": "生成日程的分钟数，默认5分钟",
+                "default": 5
+            },
+            "persona_name": {
+                "description": "日程生成使用的人格名称",
+                "type": "string",
+                "hint": "用于生成日程的人格名称，留空则使用默认人格",
+                "default": ""
+            }
+        }
+    },
+    "random_daily_activities": {
+        "description": "群聊随机日常活动配置",
+        "type": "object",
+        "items": {
+            "daily_sharing": {
+                "description": "群聊日常分享配置",
+                "type": "object",
+                "items": {
+                    "enabled": {
+                        "description": "是否启用群聊日常分享",
+                        "type": "bool",
+                        "hint": "启用后bot会在群聊中随机分享自己的日常活动",
+                        "default": false
+                    },
+                    "min_interval_minutes": {
+                        "description": "最小发送间隔(分钟)",
+                        "type": "int",
+                        "hint": "两次日常分享之间的最小间隔时间",
+                        "default": 360
+                    },
+                    "sharing_max_delay_seconds": {
+                        "description": "日常分享消息最大随机延迟(秒)",
+                        "type": "int",
+                        "hint": "发送日常分享消息时的最大随机延迟时间(秒)，默认900秒(15分钟)",
+                        "default": 900
+                    }
+                }
+            }
+        }
+    },
+    "festival_settings": {
+        "description": "群聊节日检测与问候配置",
+        "type": "object",
+        "items": {
+            "enabled": {
+                "description": "是否启用群聊节日检测功能",
+                "type": "bool",
+                "hint": "启用后会在特殊节日在群聊中发送相关问候和提示",
+                "default": true
+            },
+            "prioritize_festival": {
+                "description": "是否优先使用节日提示词",
+                "type": "bool",
+                "hint": "启用后在节日当天会优先使用节日相关提示词",
+                "default": true
+            }
+        }
+    },
+    "tools_api_keySettings":{
+        "description": "工具API的密钥和配置",
+        "type": "object",
+        "items": {
+            "weather_api_key": {
+                "description": "心知天气API的密钥",
+                "type": "string",
+                "hint": "请填写天气API的密钥中的私钥，用于获取天气信息",
+                "default": ""
+            },
+            "weather_location": {
+                "description": "天气API的位置信息",
+                "type": "string",
+                "hint": "请填写你所在的城市或地区，用于获取天气信息",
+                "default": "taiyuan"
+            },
+            "weather_get": {
+                "description": "是否开启天气获取功能",
+                "type": "bool",
+                "hint": "启用后可以通过指令获取天气信息",
+                "default": false
+            }
+        }
+    },
+    "group_specific_settings": {
+        "description": "群聊特定设置",
+        "type": "object",
+        "items": {
+            "avoid_disturbing_active_chat": {
+                "description": "是否避免打扰活跃的群聊",
+                "type": "bool",
+                "hint": "启用后会检测群聊活跃度，避免在群聊正在热烈讨论时发送主动消息",
+                "default": true
+            },
+            "active_threshold_messages": {
+                "description": "活跃判定消息数阈值",
+                "type": "int",
+                "hint": "在过去一段时间内超过此消息数则认为群聊活跃，默认5条",
+                "default": 5
+            },
+            "active_check_minutes": {
+                "description": "活跃度检测时间窗口(分钟)",
+                "type": "int",
+                "hint": "检测过去多少分钟内的消息数来判断活跃度，默认30分钟",
+                "default": 30
+            },
+            "mention_bot_probability": {
+                "description": "主动消息@机器人的概率",
+                "type": "float",
+                "hint": "发送主动消息时@机器人自己的概率(0-1)，默认0.3",
+                "default": 0.3
+            }
+        }
+    }
+}
