@@ -218,18 +218,11 @@
                 "type": "int",
                 "hint": "在过去一段时间内超过此消息数则认为群聊活跃，默认5条",
                 "default": 5
-            },
-            "active_check_minutes": {
+            },            "active_check_minutes": {
                 "description": "活跃度检测时间窗口(分钟)",
                 "type": "int",
                 "hint": "检测过去多少分钟内的消息数来判断活跃度，默认30分钟",
                 "default": 30
-            },
-            "mention_bot_probability": {
-                "description": "主动消息@机器人的概率",
-                "type": "float",
-                "hint": "发送主动消息时@机器人自己的概率(0-1)，默认0.3",
-                "default": 0.3
             }
         }
     }
