@@ -62,7 +62,6 @@
     "avoid_disturbing_active_chat": true,    // 避免打扰活跃群聊
     "active_threshold_messages": 5,         // 30分钟内超过5条消息认为活跃
     "active_check_minutes": 30,             // 活跃度检测时间窗口
-    "mention_bot_probability": 0.3          // 30%概率@机器人自己
   }
 }
 ```
